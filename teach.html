@@ -1,0 +1,61 @@
+<html>
+    <head>
+  <style>
+      #hmm{
+ overflow: hidden;
+          background-image: url('bgm.png');
+      }
+      h1
+      {
+          color: ghostwhite;
+
+      }
+      .btn{
+    width: 1000px;
+    color: #fff;
+    text-decoration: none;
+    border: #ccc 1px solid;
+    padding: 10px 15px;
+    border-radius: 8px;
+    line-height: 4em;
+}
+    table{
+        position: absolute ;
+    }
+  </style>
+    </head>
+    <body id="hmm">
+        <div id="particlejs" style="align-content: center;">
+        <table style="width:auto;height= 100%;background-color:rgba(0,0,0,0.5) ;color: floralwhite; padding-left: 600px;" >
+            <h1 style="text-align: center;">TEACHER'S PLATFORM</h1>
+            <a href="shashu.html" class="btn" >Studio</a>
+            <tr>
+              <th style="text-align: left;">SUBJECT </th>
+              <th style="text-align: center;">DOMAIN</th>
+            </tr>
+            <tr>
+              <td>Math</td>
+              <td><a href="scene (3).gltf" download > <model-viewer src="scene (3).gltf" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer></a></td>
+            </tr>
+            <tr>
+              <td>Chem</td>
+              <td><a href="atom.gltf" download><model-viewer src="atom.gltf" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer></a></td>
+            </tr>
+            <tr>
+                <td>Phy</td>
+                <td><a href="scene.gltf" download><model-viewer src="scene.gltf" alt="A 3D model of an astronaut" auto-rotate camera-controls></model-viewer></a></td>
+              </tr>
+        </table>
+         </div>
+         <script src=" https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+         <script >
+             particlesJS.load('particlejs','particles.json',function(){
+                 console.log('particles.json loaded...')
+             })
+         </script>
+         <!-- Import the component -->
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+        <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+        <!-- Use it like any other HTML element -->
+    </body>
+</html>

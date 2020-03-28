@@ -1,0 +1,192 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "Microsoft GLTF Exporter 2.4.2.8"
+  },
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5123,
+      "count": 76992,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 14051,
+      "type": "VEC3",
+      "max": [
+        4.7281622886657715,
+        10.515154838562012,
+        5.597357273101807
+      ],
+      "min": [
+        -4.667480945587158,
+        0,
+        -5.597357273101807
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 14051,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 14051,
+      "type": "VEC2"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 153984,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 153984,
+      "byteLength": 168612,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 322596,
+      "byteLength": 168612,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 491208,
+      "byteLength": 112408,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "atom_data.bin",
+      "byteLength": 603616
+    }
+  ],
+  "images": [
+    {
+      "uri": "atom_img0.png"
+    },
+    {
+      "uri": "atom_img1.png"
+    },
+    {
+      "uri": "atom_img2.png"
+    },
+    {
+      "uri": "atom_img3.png"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicRoughnessTexture": {
+          "index": 3
+        }
+      },
+      "alphaMode": "MASK",
+      "name": "49",
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_pbrSpecularGlossiness": {
+          "diffuseTexture": {
+            "index": 0
+          },
+          "specularGlossinessTexture": {
+            "index": 1
+          }
+        }
+      },
+      "extras": {
+        "MSFT_sRGBFactors": false
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "mesh_id31",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 0,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "root"
+    },
+    {
+      "translation": [
+        -0.008250242099165916,
+        -0.2560001015663147,
+        0.2725449204444885
+      ],
+      "scale": [
+        0.048691634088754654,
+        0.048691634088754654,
+        0.048691634088754654
+      ],
+      "mesh": 0,
+      "name": "node_id30"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9985
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "textures": [
+    {
+      "name": "texture5",
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "name": "texture6",
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "name": "49_bc",
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "name": "49_mr",
+      "sampler": 0,
+      "source": 3
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_pbrSpecularGlossiness"
+  ]
+}

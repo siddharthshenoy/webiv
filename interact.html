@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body{
+            background-color: black;
+            background-size: cover;                    
+            background-repeat: no-repeat;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+        }
+        #button {
+            background-color: rgb(93, 97, 93); /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        #top{
+            width: 98%;
+            height: 75px;
+            margin: auto;            
+            margin-top: 0;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 48px; 
+            font-weight: 500;
+            color:white(4, 142, 255);
+        }
+        #container{
+            border: 2px solid black;
+            height: 750px;
+            background-image: url('bgm.png');
+            border-bottom: 4px solid white;
+        }
+        #half-left{
+            background-image: url('images.png');
+            margin-top: 48px;
+            margin-left: 40px;
+            width: 45%;
+            height: 540px;
+            float:left;
+            background-color: rgb(194, 157, 224); 
+            border-radius: 8px;
+            padding-left: 4px;
+            padding-bottom: 20px;
+        }
+        #half-right{
+            background-image: url('images.png');
+            margin-top: 48px;
+            font-size: 32px; color: white;
+            text-align: center;
+            width: 99%;
+            height: 100%;
+            margin-right: 40px;
+            float:right;
+            border-radius: 8px;
+            padding-left: 16px;
+            padding-top: 24px;
+            padding-right: 46px;
+            background-color: rgb(105, 4, 131);
+        }
+        #video{
+            font-size: 32px;
+            padding-top: 30px;
+            border: 2px black;
+            text-align: center;
+        }
+        #toolbox{
+            margin-top: 30px;
+            font-size: 32px;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            height: 620px;
+            border-radius: 8px;
+            width: 100%;
+            margin-left: 40px;
+            border: 2px solid black;
+        }
+        .col{
+            float:left;
+            width: 90%;
+            height: 50px;
+            font-size: 20px;
+            margin-left: 42px;
+            text-align: left;
+        }
+        #sub{
+            font-size: 36px;
+            color:white;
+            margin-left: 60px;
+            margin-top: 48px;
+            width: 90%;
+            }
+        
+        .gallery {
+	display: inline-block;
+	width: 100%;
+	padding-bottom: 35px;
+	padding-top: 0px;
+	margin-top: -5px;
+	margin-bottom: 0px;
+    background:black;
+    display: none;
+}
+    .thumbnail {
+    width: 22%;
+    height: 300px;
+	text-align: center;
+    font-size: 22px; 
+	float: left;
+	margin-top: 35px;
+	background-color: #F8F8F8;
+	padding-bottom: 20px;
+	margin-left: 1%;
+	margin-right: 1%;
+	border-radius: 3px;
+	padding-top: 20px;
+    border-bottom: 6px solid rgb(247, 195, 195);
+    background-color: rgb(247, 243, 243);
+}
+    .gallery .thumbnail h2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: black;
+	text-align: left;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+    .gallery .thumbnail p {
+	margin: 0;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	padding-left: 20px;
+}
+    </style>
+</head>
+<body onload="InitThis()">
+    <div id="particlejs">
+    <div id='container'>    
+    <div id='top'>
+        INTERACTIVE VIDEO SESSION
+    </div>
+        <div id="half-left">
+            <div id='video' style='border-width: 2px;'>
+                IMPORT ANY VIDEO?
+                <video width="92%" height="100%" controls style="padding-top: 24px;">
+                    <video id="videoElement" src="earth.mp4"></video>
+                    <button id="pipButtonElement"></button>
+                    pipButtonElement.addEventListener('click', async function() {
+                        pipButtonElement.disabled = true;
+                      
+                        await videoElement.requestPictureInPicture();
+                      
+                        pipButtonElement.disabled = false;
+                      });
+                    <source src="earth.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class='col'>
+                <br>details about the video from a database?<br>
+                subscribe to this channel<br>
+                other info
+            </div>
+        </div>
+        <div id='half-right'>
+            SCRATCHPAD:
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="JsCode.js"></script>
+            <div align ="center">
+                <canvas id="myCanvas" width="2000" height="600" style="border:2px solid black;background-color: snow;"></canvas>
+                <br /><br />
+                <button onclick="javascript:clearArea();return false;">Clear Area</button>
+                Line width : <select id="selWidth">
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                    <option value="9" selected="selected">9</option>
+                    <option value="11">11</option>
+                </select>
+                Color : <select id="selColor">
+                    <option value="black">black</option>
+                    <option value="blue" selected="selected">blue</option>
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="yellow">yellow</option>
+                    <option value="gray">gray</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id='sub'>
+        <button type="button" id="button" >SUBJECTS WE OFFER >></button>
+        <div class="gallery">
+            <div class="thumbnail"> <a href="game.html"><img src="physics.jpeg" style="height: 120px; width: 230px;"></a>
+              <h2>PHYSICS</h2>
+              <p> some information about physics</p>
+            </div>
+        
+            <div class="thumbnail"> <a href="chem11.html"><img src="chemistry.jpg" style="height: 120px; width: 230px;"></a>
+              <h2>CHEMISTRY</h2>
+              <p class="text_column"> some information about chemistry</p>
+            </div>
+        
+            <div class="thumbnail"> <a href="graph.html"><img src="math.jpg" style="height: 120px; width: 230px;"></a>
+              <h2>MATHS</h2>
+              <p class="text_column"> some information about maths</p>
+            </div>
+        
+            <div class="thumbnail"> <a href="interact.html"><img src="bio1.jpg" style="height: 120px; width: 230px;"></a>
+              <h2>BIOLOGY</h2>
+              <p class="text_column">some information about biology</p>
+            </div>
+          </div>
+
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script >
+        particlesJS.load('particlejs','partcle1.json',function(){
+            console.log('particles.json loaded...')
+        })
+    </script>
+    <script>
+        var div = document.getElementById('sub').onclick = show;
+        function show(){
+            var b = document.getElementsByClassName('gallery')[0];
+            b.style.display = 'block';
+        }
+    </script>
+</body> 

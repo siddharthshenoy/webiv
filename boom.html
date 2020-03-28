@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <iframe width="768" height="432" src="https://www.youtube.com/embed/UukVP7Mg3TU" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+    <div style="float: right;">
+        <!-- <h1>Apps with Toolbar: GeoGebra Classic</h1>
+        <p style="width:800px">This page shows how to embed GeoGebra Classic without construction in a webpage.
+            For details about customization please refer to <a
+                href="https://wiki.geogebra.org/en/Reference:Applet_Parameters">documentation</a>. Please check out
+            embedding examples for our other apps:</p>
+        <a class="btn" href="example-graphing.html">Graphing Calculator</a>
+        <a class="btn" href="example-geometry.html">Geometry</a>
+        <a class="btn active"" href=" example-tools.html">Classic</a>
+        <p><img src="https://www.geogebra.org/images/worksheet/icon-info.png"> <a id="tutorial-link"
+                target="_blank">Tutorial</a></p> -->
+        <script type="text/javascript" src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+
+        
+
+        <div id="applet_container"></div>
+        <ul>
+            <li><button onclick="saveGgbFile()">save</button>
+            <li><button onclick="loadGgbFile()">load</button>
+        </ul>
+
+
+        <textarea name="Base64" id="Base64" cols=66 rows=8></textarea>
+        <script type="text/javascript">
+
+            function updateHelp(p) {
+                document.getElementById('tutorial-link').href = tutorials[p][1];
+                document.getElementById('tutorial-link').innerText = tutorials[p][0] + " Tutorial";
+            }
+            function perspective(p) {
+                updateHelp(p);
+                ggbApplet.setPerspective(p);
+            }
+            var parameters = {
+                "id": "ggbApplet",
+                "width": 850,
+                "height": 780,
+                "showToolBar": true,
+                "borderColor": null,
+                "showMenuBar": false,
+                "allowStyleBar": true,
+                "showAlgebraInput": true,
+                "enableLabelDrags": false,
+                "enableShiftDragZoom": true,
+                "capturingThreshold": null,
+                "showToolBarHelp": false,
+                "errorDialogsActive": true,
+                "showTutorialLink": false,
+                "showLogging": true,
+                "useBrowserForJS": false,
+                "perspective": "AG"
+            };
+
+            var applet = new GGBApplet(parameters, '5.0', 'applet_container');
+            //  when used with Math Apps Bundle, uncomment this:
+            //  applet.setHTML5Codebase('GeoGebra/HTML5/5.0/web3d/');
+
+            window.onload = function () { applet.inject('applet_container'); updateHelp('AG'); }
+            function saveGgbFile() { ggbApplet.getBase64(function (b) { document.getElementById("Base64").value = b }); }
+            function loadGgbFile() { ggbApplet.setBase64(document.getElementById("Base64").value); }
+
+        </script>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.8.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+</body>
+
+</html>

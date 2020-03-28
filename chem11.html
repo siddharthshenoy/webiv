@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Babylon Template</title>
+
+        <style>
+            html,
+            body {
+                background-image: url('bgm.png');
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                margin-top: 400px;
+                width: 100%;
+                height:100%;
+                touch-action: none;
+                bottom: 0;
+                right: 0;
+            }
+
+            #localVideo {
+            
+                max-height: 513;
+                box-sizing: border-box;
+                border-radius: 2px;
+                padding: 0;
+                box-shadow: rgba(156, 172, 172, 0.2) 0px 2px 2px, rgba(156, 172, 172, 0.2) 0px 4px 4px, rgba(156, 172, 172, 0.2) 0px 8px 8px, rgba(156, 172, 172, 0.2) 0px 16px 16px, rgba(156, 172, 172, 0.2) 0px 32px 32px, rgba(156, 172, 172, 0.2) 0px 64px 64px;
+            }
+
+            #remoteVideo {
+                max-height: 513;
+                box-sizing: border-box;
+                border-radius: 2px;
+                padding: 0;
+                box-shadow: rgba(156, 172, 172, 0.2) 0px 2px 2px, rgba(156, 172, 172, 0.2) 0px 4px 4px, rgba(156, 172, 172, 0.2) 0px 8px 8px, rgba(156, 172, 172, 0.2) 0px 16px 16px, rgba(156, 172, 172, 0.2) 0px 32px 32px, rgba(156, 172, 172, 0.2) 0px 64px 64px;
+            }
+
+            .copy {
+                position: fixed;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.5);
+            }
+        </style>
+
+
+        <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    </head>
+
+    <body>
+
+
+        <video width="100%" height="100%" controls>
+            <source src="chem.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="copy" style="top: 0;left: 0;">Interacterizer</div>
+       <!-- <div class="tt" style="width: 60%;height: 530;bottom: 0;left: 0;">
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+        <script src="script.js"></script></div>-->
+
+
+        <canvas id="renderCanvas" touch-action="none"></canvas>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var canvas = document.getElementById("renderCanvas");
+                var engine = new BABYLON.Engine(canvas, true);
+                var createScene = function () {
+                    var scene = new BABYLON.Scene(engine);
+                    var camera = new BABYLON.ArcRotateCamera("arcCam",
+                        BABYLON.Tools.ToRadians(0),
+                        BABYLON.Tools.ToRadians(0),
+                        10.0, BABYLON.Vector3.Zero(), scene);
+                    camera.attachControl(canvas, true);
+                    var light = new BABYLON.PointLight("PointLight", new BABYLON.Vector3(
+                        0, 0, 0), scene);
+                    light.parent = camera;
+                    light.intensity = 1.5;
+
+
+
+                    BABYLON.SceneLoader.ImportMesh("", "/", "atom2.glb", scene, function (meshes) {
+                        scene.createDefaultCameraOrLight(true, true, true);
+                        scene.createDefaultEnvironment();
+
+                    });
+
+                    return scene;
+                };
+                // get the canvas DOM element
+                //     var canvas = document.getElementById("renderCanvas");
+                //     var engine = new BABYLON.Engine(canvas, true);
+
+                //     // createScene function that creates and return the scene
+                //     var createScene = function () {
+                //         var scene = new BABYLON.Scene(engine);
+                //         // create a basic BJS Scene object
+                //         var camera = new BABYLON.ArcRotateCamera("arcCam",
+                //         BABYLON.Tools.ToRadians(0),
+                //         BABYLON.Tools.ToRadians(0),
+                //         10.0,BABYLON.Vector3.Zero(),scene);
+                // camera.attachControl(canvas,true);
+                // var light = new BABYLON.PointLight("PointLight",new BABYLON.Vector3(
+                // 0,0,0),scene);
+                // light.parent = camera;
+                // light.intensity = 1.5;
+                //         var assetsManager = new BABYLON.AssetsManager(scene);
+                //         var meshTask = assetsManager.addMeshTask("atom", "", "/", "atom2.glb");
+
+
+                //         meshTask.onSuccess = function (task) {
+                //             task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+
+                //             //task.loadedMeshes[0].Vector3 = new BABYLON.Vector3(20,20,20);
+                //         }
+                //         meshTask.onError = function (task, message, exception) {
+                //             console.log(message, exception);
+                //         }
+                //         assetsManager.onTaskErrorObservable.add(function (task) {
+                //             console.log('task failed', task.errorObject.message, task.errorObject.exception);
+                //         });
+                //         assetsManager.onProgress = function (remainingCount, totalCount, lastFinishedTask) {
+                //             engine.loadingUIText = 'We are loading the scene. ' + remainingCount + ' out of ' + totalCount + ' items still need to be loaded.';
+                //         };
+
+                //         assetsManager.onFinish = function (tasks) {
+                //             engine.runRenderLoop(function () {
+                //                 scene.render();
+                //             });
+                //         };
+                //         assetsManager.onTaskSuccessObservable.add(function (task) {
+                //             console.log('task successful', task)
+                //         });
+                //         assetsManager.load();
+                //         return scene;
+                //     }
+
+                var scene = createScene();
+                engine.runRenderLoop(function () {
+                    scene.render();
+                });
+                window.addEventListener('resize', function () {
+                    engine.resize();
+                });
+
+            });
+
+        </script>
+
+    </body>
+
+</html>
